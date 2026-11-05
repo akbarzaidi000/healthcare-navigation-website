@@ -40,3 +40,20 @@ No partner organizations, service coverage, outcomes, credentials, nonprofit sta
 ## Technology
 
 Plain HTML, CSS, and vanilla JavaScript. No framework, database, analytics, cookies, authentication, or third-party form service is used. Google Fonts are loaded from Google's font CDN; use system fonts if a fully self-hosted setup is preferred.
+
+## Resource directory data model
+
+The directory reads from `resources.js`, which exports `window.CAREPATH_RESOURCES`. The file intentionally starts empty. Add an organization only after checking its details against official information. Required review fields should include:
+
+- `name`, `description`, `serviceAreas`, `officialUrl`
+- `verificationStatus`: only entries with the exact value `verified` are displayed
+- `lastVerified`: date the displayed details were checked
+- `affordability`: confirmed values such as `free`, `sliding-scale`, `financial-assistance`, or `low-cost`
+- `interpreterAvailable`, `translatedInformation`, `referralStatus`, `transportationAssistance`, `financialAssistance`
+- `tags`: relevant nonmedical categories for matching in the guidance tool
+
+Do not infer missing information. Leave unknown fields blank or use `unknown`. Never treat a listing as a guarantee of availability, eligibility, or cost. Confirm details with the organization before relying on them.
+
+## Review and release
+
+This iteration is staged on the `carepath-review` branch so the GitHub Pages site served from `main` is not changed. Review the branch contents before merging or publishing. The contact form remains a local demonstration and does not transmit or store messages.
